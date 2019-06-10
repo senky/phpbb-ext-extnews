@@ -16,9 +16,9 @@ class listener implements EventSubscriberInterface
 {
 	public static function getSubscribedEvents()
 	{
-		return array(
+		return [
 			'core.acp_main_notice'	=> 'ext_news',
-		);
+		];
 	}
 
 	protected $scraper;
