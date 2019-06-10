@@ -38,15 +38,7 @@ class listener implements EventSubscriberInterface
 		$exts = $this->scraper->get_most_updated_exts();
 		foreach ($exts as $ext)
 		{
-			$this->template->assign_block_vars('extnews', [
-				'URL'			=> $ext['url'],
-				'NAME'			=> $ext['name'],
-				'DESC'			=> $ext['desc'],
-				'IMG'			=> $ext['img'],
-				'AUTHOR'		=> $ext['author'],
-				'AUTHOR_COLOUR'	=> $ext['author_colour'],
-				'AUTHOR_URL'	=> $ext['author_url'],
-			]);
+			$this->template->assign_block_vars('extnews', array_change_key_case($ext, CASE_UPPER));
 		}
 	}
 }
