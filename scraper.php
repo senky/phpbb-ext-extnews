@@ -30,7 +30,15 @@ class scraper
 			return $exts;
 		}
 
-		$html = \duzun\hQuery::fromUrl('https://www.phpbb.com/customise/db/extensions-36/3.2?sk=t&sd=d');
+		try
+		{
+			$html = \duzun\hQuery::fromUrl('https://www.phpbb.com/customise/db/extensions-36/3.2?sk=t&sd=d');
+		}
+		catch (\Exception $e)
+		{
+			return [];
+		}
+
 		if (!$html)
 		{
 			return [];
